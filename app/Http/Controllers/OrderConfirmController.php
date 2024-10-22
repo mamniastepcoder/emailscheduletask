@@ -95,7 +95,6 @@ class OrderConfirmController extends Controller
                 $orderData['total'] = (float) trim(str_replace('*', '', substr($line, strpos($line, ':') + 1)));
             }
         }
-
         return $orderData;
     }
 }
