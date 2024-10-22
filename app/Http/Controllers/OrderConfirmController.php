@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Models\OrderConfirm;
@@ -19,7 +17,6 @@ class OrderConfirmController extends Controller
         $hostname = '{imap.hostinger.com:993/imap/ssl}INBOX'; 
         $username = 'tannu.mamnia@stepcoders.com'; 
         $password = 'Mamnia@123'; 
-
         $inbox = @imap_open($hostname, $username, $password);
         $emails = imap_search($inbox, 'FROM "praney.raghuvanshi@gmail.com"');
 
