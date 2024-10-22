@@ -13,8 +13,7 @@ class OrderConfirmController extends Controller
                 'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             ]
         ]);
-        
-        $hostname = '{imap.hostinger.com:993/imap/ssl}INBOX'; 
+       $hostname = '{imap.hostinger.com:993/imap/ssl}INBOX'; 
         $username = 'tannu.mamnia@stepcoders.com'; 
         $password = 'Mamnia@123'; 
         $inbox = @imap_open($hostname, $username, $password);
@@ -38,7 +37,6 @@ class OrderConfirmController extends Controller
             } else {
                 $message = imap_fetchbody($inbox, $emailNumber, 1);
             }
-
             $message = quoted_printable_decode($message);
             $message = htmlspecialchars_decode($message);
 
@@ -89,7 +87,6 @@ class OrderConfirmController extends Controller
             if (strpos($line, 'Item Description') !== false) {
                 continue;
             }
-
             if (preg_match('/(\d+)\s+(.*)\s+(\d+)\s+([\d.]+)\s+([\d.]+)/', $line, $matches)) {
                 $orderData['item_description'] = trim($matches[2]);
                 $orderData['quantity'] = (int) trim($matches[3]);
