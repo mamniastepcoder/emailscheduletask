@@ -60,9 +60,7 @@ class OrderConfirmController extends Controller
 
         foreach ($lines as $line) {
             $line = trim($line);
-
-
-        if (strpos($line, 'Customer Name :') !== false) {
+            if (strpos($line, 'Customer Name :') !== false) {
             $start = strpos($line, ':') + 1; 
             $orderData['customer_name'] = trim(str_replace('*', '', substr($line, $start)));
         }
